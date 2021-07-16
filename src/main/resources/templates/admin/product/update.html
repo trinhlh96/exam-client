@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+</head>
+<body>
+<h1>Form</h1>
+<form action="#"
+      th:action="@{/product/update/{id}(id=${product.id})}"
+      th:object="${product}"
+      method="post">
+    <label for="name">name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="name">
+    <label for="price">price</label>
+    <input type="text" th:field="*{price}" id="price" placeholder="price">
+    <label for="quantity">quantity</label>
+    <input type="text" th:field="*{quantity}" id="quantity" placeholder="quantity">
+    <input type="submit" value="Update User">
+</form>
+</body>
+</html>

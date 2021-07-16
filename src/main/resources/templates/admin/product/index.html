@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List</title>
+</head>
+<body>
+<h1>List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>price</th>
+        <th>quantity</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="st: ${product} " >
+        <td th:text="${st.id}"></td>
+        <td th:text="${st.name}"></td>
+        <td th:text="${st.price}"></td>
+        <td th:text="${st.quantity}"></td>
+        <td><a th:href="@{/product/edit/{id}(id=${st.id})}">Edit</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
