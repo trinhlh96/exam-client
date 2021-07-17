@@ -28,7 +28,7 @@ public class ProductController {
         return "admin/product/form";
     }
     @RequestMapping( method = RequestMethod.POST)
-    public String store(Product product, BindingResult result) {
+    public String store(Product product) {
         productService.addProduct(product);
         return "redirect:/product";
     }
@@ -37,13 +37,13 @@ public class ProductController {
         model.addAttribute("product", productService.findById(id));
         return "admin/product/update";
     }
-    @RequestMapping(value = "/update/{rollNumber}",method = RequestMethod.POST)
-    public String updateUser(@PathVariable Long id, Product product,
-                             BindingResult result, Model model) {
+    @RequestMapping(value = "/update/{id}",method = RequestMethod.POST)
+    public String updateQuantity(@PathVariable Long id, Product product,
+                             BindingResult result) {
         if (result.hasErrors()) {
             return "admin/product/update";
         }
-        productService.addProduct(product);
+        productService.sellProduct(id,product.getQuantity());
         return "redirect:/product";
     }
 }
